@@ -59,8 +59,9 @@ def demohtml():
 #http://localhost:8000/render/html/textoquequieres
 @app.route("/render/html/<mensaje>")
 def renderhtml(mensaje="Bienvenido a Flask con Python"):
-    mensaje = request.args.get("mensaje", mensaje)
-    return render_template("layout.html",texto = mensaje)
+    #mensaje = request.args.get("mensaje", mensaje)
+    context = {"texto": mensaje}
+    return render_template("layout.html",**context)
 
 app.run(debug=True, port=8000, host='127.0.0.1')
 

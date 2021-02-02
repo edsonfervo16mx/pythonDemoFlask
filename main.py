@@ -61,7 +61,12 @@ def demohtml():
 def renderhtml(mensaje="Bienvenido a Flask con Python"):
     #mensaje = request.args.get("mensaje", mensaje)
     context = {"texto": mensaje}
-    return render_template("layout.html",**context)
+    return render_template("pagina.html",**context)
+
+@app.route("/web/child/<mensaje>")
+def webchild(mensaje="Demo child"):
+    context = {"texto": mensaje}
+    return render_template("child.html",**context)
 
 app.run(debug=True, port=8000, host='127.0.0.1')
 
